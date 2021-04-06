@@ -1,0 +1,24 @@
+<div class="wrap">
+  <div class="panel">
+    <div class="carts">
+      <div class="cart" *ngFor="let item of items">
+        <div class="row">
+          <p class="name">Полное имя: {{item.firstName}} {{item.lastName}}</p>
+          <p class="email">E-Mail: {{item.email}}</p>
+          <p class="birth">Дата рождения: {{item.dateOfBirth}}</p>
+          <p class="framework">Фреймворк: {{item.framework}} {{item.frameworkVersion}}</p>
+          <div class="tags" *ngIf="item.hobbyes?.length">
+            <p>Хобби:</p>
+            <ul>
+              <li *ngFor="let hobby of item.hobbyes"><p>{{hobby.name}} {{hobby.duration}}</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="no-carts" *ngIf="!items.length">
+        <p>Здесь пока еще нет записей</p>
+        <p>Вы можете <a [routerLink]="['/new-application']"><button class="button-primary small">Добавить новую</button></a></p>
+      </div>
+    </div>
+  </div>
+</div>

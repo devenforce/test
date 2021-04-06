@@ -1,0 +1,100 @@
+<div class="wrap">
+  <div class="panel">
+    <div class="application-form" *ngIf="!sended">
+      <form [formGroup]="applicationForm" (ngSubmit)="send()">
+        <div class="error" *ngIf="error">Поля введены неверно</div>
+        <p>Анкета</p>
+        <div class="row">
+          <label>Имя<span class="required"></span></label>
+          <input type="text" class="input-primary" formControlName="firstName">
+          <p class="invalid" *ngIf="applicationForm.controls.firstName.errors?.required">Поле не может быть пустым</p>
+        </div>
+        <div class="row">
+          <label>Фамилия<span class="required"></span></label>
+          <input type="text" class="input-primary" formControlName="lastName">
+          <p class="invalid" *ngIf="applicationForm.controls.lastName.errors?.required">Поле не может быть пустым</p>
+        </div>
+        <div class="row">
+          <label>Дата рождения<span class="required"></span></label>
+          <div class="input-group">
+            <input type="text" matInput [matDatepicker]="picker" class="input-primary" formControlName="dateOfBirth">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker ></mat-datepicker>
+          </div>
+          <p class="invalid" *ngIf="applicationForm.controls.dateOfBirth.errors?.required">Поле не может быть пустым</p>
+        </div>
+        <div class="row">
+          <label>Фреймворк<span class="required"></span></label>
+          <select class="select-primary" formControlName="framework" (change)="currentFramework = applicationForm.controls.framework.value; applicationForm.controls.frameworkVersion.reset()">
+            <option value>Не выбран</option>
+            <optgroup label="Фреймворк">
+              <option *ngFor="let item of framework" [value]="item">{{item}}</option>
+            </optgroup>
+          </select>
+          <p class="invalid" *ngIf="applicationForm.controls.framework.errors?.required">Поле не может быть пустым</p>
+        </div>
+        <div class="row" *ngIf="currentFramework">
+          <label>Версия фреймворка<span class="required"></span></label>
+          <select class="select-primary" formControlName="frameworkVersion">
+            <option value>Не выбран</option>
+            <optgroup *ngIf="currentFramework" [label]="currentFramework">
+              <option *ngFor="let item of (frameworks[currentFramework])" [value]="item">{{item}}</option>
+            </optgroup>
+          </select>
+          <p class="invalid" *ngIf="applicationForm.controls.frameworkVersion.errors?.required">Поле не может быть пустым</p>
+        </div>
+        <div class="row">
+          <label>E-Mail<span class="required"></span></label>
+          <input type="text" class="input-primary" formControlName="email">
+          <p class="invalid" *ngIf="applicationForm.controls.email.errors?.required">Поле не может быть пустым</p>
+          <p class="invalid" *ngIf="applicationForm.controls.email.errors?.exists">{{applicationForm.controls.email.errors?.existsMessage}}</p>
+        </div>
+        <hr>
+        <div class="column">
+          <div class="row">
+            <p>Добавить хобби</p>
+            <form [formGroup]="hobbyForm" (ngSubmit)="addHobby()">
+              <div class="row">
+                <label>Название<span class="required"></span></label>
+                <input type="text" class="input-primary" formControlName="name">
+                <p class="invalid" *ngIf="hobbyForm.controls.name.errors?.required">Поле не может быть пустым</p>
+              </div>
+              <div class="row">
+                <label>Продолжительность<span class="required"></span></label>
+                <select class="select-primary" formControlName="duration">
+                  <option value>Не выбран</option>
+                  <option value="1 month">1 месяц</option>
+                  <option value="2 month">2 месяца</option>
+                  <option value="6 month">6 месяцев</option>
+                  <option value="1 year">1 год</option>
+                  <option value="2 year more">более 2 лет</option>
+                </select>
+                <p class="invalid" *ngIf="hobbyForm.controls.duration.errors?.required">Поле не может быть пустым</p>
+              </div>
+              <div class="row">
+                <button class="button-primary small" type="submit">Добавить хобби</button>
+              </div>
+            </form>
+          </div>
+          <div class="row" *ngIf="hobbyes.length">
+            <div class="hobbyes">
+              <p>Хобби</p>
+              <div class="hobby" *ngFor="let item of hobbyes">
+                <div class="name">{{item.name}}</div>
+                <div class="duration">{{item.duration}}</div>
+                <button (click)="removeHobby(item)">Удалить</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row" >
+          <button type="submit" class="button-primary">Отправить</button>
+        </div>
+      </form>
+    </div>
+    <div class="sended" *ngIf="sended">
+      Форма успешно отправлена
+    </div>
+  </div>
+</div>

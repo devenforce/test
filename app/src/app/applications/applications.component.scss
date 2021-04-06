@@ -1,0 +1,39 @@
+.carts{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 -7.5px;
+  .cart{
+    flex-grow: 1;
+    min-width: 200px;
+    width: 25%;
+    padding: 15px;
+    margin: 7.5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    .name{
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .email, .birth, .framework{
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .tags{
+      margin-top: 5px;
+      p{
+        font-size: 12px;
+      }
+      ul li{
+        float: left;
+        background: #39f;
+        padding: 2px 5px;
+        border-radius: 5px;
+        color: #fff;
+        margin-top: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
+}

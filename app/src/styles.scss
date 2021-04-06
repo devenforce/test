@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul{
+  list-style: none;
+}
+
+a{
+  color: #39f;
+  text-decoration: none;
+}
+
+body{
+  color: #333;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: 'Roboto';
+}
+
+.input-primary, .select-primary{
+  background: #fff;
+  border: 1px solid #39f;
+  padding: 0 5px;
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+.button-primary{
+  background: #39f;
+  border: 0;
+  padding: 0 15px;
+  height: 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  cursor: pointer;
+  &.small{
+    height: 30px;
+  }
+}
+
+section.content{
+  display: block;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  float: left;
+  width: 100%;
+  height: calc(100vh - 100px);
+  overflow: auto;
+}
+
+.wrap{
+  width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1200px) {
+  .wrap {
+    width: 100%;
+  }
+}
+
+.panel{
+  margin: 15px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.input-group{
+  display: flex;
+  flex-direction: row;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

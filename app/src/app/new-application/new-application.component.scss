@@ -1,0 +1,97 @@
+.application-form{
+  .error{
+    width: 100%;
+    padding: 10px;
+    border-left: 4px solid #c00;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+  hr{
+    border: none;
+    color: #eee;
+    background-color: #eee;
+    height: 1px;
+    margin: 0 -15px;
+  }
+  p{
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .column{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    > * {
+      flex-grow: 1;
+    }
+  }
+  .row{
+    padding: 5px 0;
+    label{
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+      .required{
+        color: #c00;
+        &::after{
+          content: '*';
+        }
+      }
+    }
+    .invalid{
+      color: #c00;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+  .hobbyes{
+    margin-left: 10px;
+    p{
+      margin-bottom: 30px;
+    }
+    .hobby{
+      display: flex;
+      flex-direction: row;
+      height: 30px;
+      border-radius: 15px;
+      margin: 5px 0;
+      background: #fff;
+      line-height: 20px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      .name{
+        min-width: 150px;
+        // background: #39f;
+        // text-align: center;
+        // color: #fff;
+        padding: 5px 15px;
+        border-radius: 15px 0 0 15px;
+      }
+      .duration{
+        flex-grow: 1;
+        padding: 5px 0;
+        margin-left: 10px;
+      }
+      input[type=text]{
+        width: 100%;
+        background: transparent;
+        border: 0;
+        outline: none;
+      }
+      button{
+        margin-left: 10px;
+        background: transparent;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+        height: 100%;
+        padding: 0 10px;
+        border-radius: 0 15px 15px 0;
+
+        &:hover{
+          background: #ddd;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<header>
+  <div class="logo">
+    <p>Анкетирование</p>
+  </div>
+  <nav>
+    <ul>
+      <li><a [routerLink]="['/applications']" [class.active]="isActive('/applications')">Все формы</a></li>
+      <li><a [routerLink]="['/new-application']" [class.active]="isActive('/new-application') || isActive('/')">Новая форма</a></li>
+    </ul>
+  </nav>
+</header>
